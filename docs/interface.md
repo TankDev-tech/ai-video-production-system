@@ -1,50 +1,85 @@
 # Production Control Interface
 
-This document presents selected interfaces from the production control panel of the **Autonomous AI Video Production System** developed by [TankDev](https://tankdev.tech).
+This document presents selected workflow configuration interfaces from the **Autonomous AI Video Production System** developed by [TankDev](https://tankdev.tech).
 
-The control panel provides a centralized interface for configuring and managing different stages of the automated production workflow.
+The production panel provides a centralized interface for configuring the behavior of the automated video production workflow.
 
-> Screenshots shown here represent the implemented production system. Credentials, API keys, channel secrets, and other sensitive configuration values are excluded from public documentation.
+> The screenshots below represent the implemented system interface. Credentials, API keys, access tokens, channel secrets, and other security-sensitive values are excluded from public documentation.
 
-## Interface Overview
+## Workflow Configuration
 
-The production interface is organized around workflow configuration rather than individual AI tools.
+The production workflow is configured through a multi-section control interface.
 
-The documented screens demonstrate how production parameters can be controlled across different stages of the system.
+These screens expose operational settings used to control different parts of the production process while keeping the underlying orchestration and provider implementations separated from the interface layer.
 
-### Workflow Configuration
+### Configuration View 1
 
-![Workflow configuration](../assets/workflow-configuration.webp)
+![Autonomous AI video workflow configuration interface — view 1](../assets/workflow-configuration-1.webp)
 
-Central configuration interface for defining production behavior and workflow parameters.
+Production workflow configuration interface used to manage system-level production parameters.
 
-### Content Configuration
+### Configuration View 2
 
-![Content configuration](../assets/content-configuration.webp)
+![Autonomous AI video workflow configuration interface — view 2](../assets/workflow-configuration-2.webp)
 
-Configuration interface for content-generation and production parameters.
+Additional workflow configuration controls within the centralized production panel.
 
-### Provider Configuration
+### Configuration View 3
 
-![Provider configuration](../assets/provider-configuration.webp)
+![Autonomous AI video workflow configuration interface — view 3](../assets/workflow-configuration-3.webp)
 
-Interface for selecting and configuring supported AI providers and models used by the production pipeline.
+Configuration view for parameters used by the automated production workflow.
 
-### Production Controls
+### Configuration View 4
 
-![Production controls](../assets/production-controls.webp)
+![Autonomous AI video workflow configuration interface — view 4](../assets/workflow-configuration-4.webp)
 
-Operational controls for production limits, execution behavior, and workflow constraints.
+Operational configuration interface for controlling production behavior.
 
-### Publishing Configuration
+### Configuration View 5
 
-![Publishing configuration](../assets/publishing-configuration.webp)
+![Autonomous AI video workflow configuration interface — view 5](../assets/workflow-configuration-5.webp)
 
-Configuration interface for output, scheduling, and publishing-related workflow parameters.
+Additional production settings exposed through the workflow control panel.
+
+## Interface Role
+
+The interface acts as the configuration surface for the production system.
+
+Rather than requiring production behavior to be changed directly in source code, configurable workflow parameters can be managed through the control panel.
+
+The interface operates above the underlying production architecture:
+
+<pre>
+Production Control Interface
+            │
+            ▼
+Configuration Layer
+            │
+            ▼
+Scheduler / Orchestrator
+            │
+            ▼
+Research & Content Generation
+            │
+            ▼
+Voice & Visual Providers
+            │
+            ▼
+Media Assembly
+            │
+            ▼
+Production Controls
+            │
+            ▼
+Publishing
+</pre>
+
+The exact relationship between individual interface fields and proprietary production logic is intentionally not documented publicly.
 
 ## Security and Public Documentation
 
-The screenshots in this repository are intended to demonstrate the implemented system interface without exposing operational secrets.
+The screenshots in this repository are provided to demonstrate the implemented production interface without exposing operational secrets.
 
 Public screenshots must not contain:
 
@@ -53,8 +88,33 @@ Public screenshots must not contain:
 - Passwords
 - Channel credentials
 - Private endpoints
-- Customer or personal data
+- Personal or customer data
 - Infrastructure secrets
+- Security-sensitive configuration values
+
+## Documentation Boundary
+
+The interface screenshots demonstrate that the documented workflow is represented by an implemented control surface.
+
+They are not intended to expose every internal configuration rule or production decision.
+
+**Publicly documented:**
+
+- Production interface structure
+- Workflow configuration concept
+- Relationship between configuration and orchestration
+- Selected production controls
+- High-level system behavior
+
+**Not publicly distributed:**
+
+- Production source code
+- Internal prompts
+- Credentials
+- Provider-specific request logic
+- Proprietary orchestration rules
+- Internal fallback strategies
+- Security-sensitive configuration
 
 ## Related Documentation
 
